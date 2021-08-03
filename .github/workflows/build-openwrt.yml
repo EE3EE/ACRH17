@@ -15,19 +15,12 @@ name: Build OpenWrt ACRH17
 
 on:
   repository_dispatch:
-#  release:
-#    types: published
-#  push:
-#    branches:
-#      - master
-#    paths:
-#      - 'acrh17.config'
-  schedule:
-    - cron: 10 1 */15 * *
-#          分 时 日 月 周5
-#   - cron: 0 8 */3 * *
-#  watch:
-#    types: started
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
